@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Python Essentials / Fundamentos de Python"
+  navbar:
+    background: light
+    left:
+      - text: "Español"
+        href: index.qmd
+      - text: "English"
+        href: english.qmd
+    tools:
+      - icon: github
+        href: https://github.com/MPalma21/taller-python-bilingue
+        text: "GitHub"
+  repo-url: https://github.com/MPalma21/taller-python-bilingue
+  repo-actions: [source]
+  page-navigation: true
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-location: right
+    toc-depth: 2
+    toc-expand: true
+    code-copy: true
+    code-tools: true
+    code-overflow: wrap
+    highlight-style: github
+
+execute:
+  echo: true
+  warning: false
+  error: false
