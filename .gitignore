@@ -1,6 +1,9 @@
 /.quarto/
 /_freeze/
+/_site/
 /.jupyter_cache/
 /.ipynb_checkpoints/
 .Rhistory
 index.html
+
+**/*.quarto_ipynb

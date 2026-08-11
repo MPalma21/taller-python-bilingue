@@ -2,19 +2,22 @@
 
 Curso introductorio y didáctico de Python en español e inglés, creado con Quarto.
 
-## Documento principal
+## Sitio bilingüe
 
-El archivo principal para Posit Connect Cloud es `index.qmd`.
+El archivo principal para Posit Connect Cloud es `_quarto.yml`.
+
+- `index.qmd`: versión en español.
+- `english.qmd`: English version.
 
 ## Vista previa local
 
 ```powershell
 python -m pip install -r requirements.txt
-quarto preview index.qmd
+quarto preview
 ```
 
 ## Render local
 
 ```powershell
-quarto render index.qmd
+quarto render
 ```
