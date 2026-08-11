@@ -30,7 +30,20 @@ This document contains the same course in Spanish and English. Select a language
 
 ## Español
 
-### 1. ¿Qué hace Python?
+### Contenido
+
+1. [¿Qué hace Python?](#es-que-hace-python)
+2. [Variables y tipos de datos](#es-variables-tipos)
+3. [Operaciones numéricas](#es-operaciones)
+4. [Comparaciones, booleanos y decisiones](#es-decisiones)
+5. [Texto o strings](#es-strings)
+6. [Listas](#es-listas)
+7. [Diccionarios](#es-diccionarios)
+8. [Tuplas](#es-tuplas)
+9. [Estructuras anidadas](#es-anidadas)
+10. [Cómo elegir una estructura](#es-elegir)
+
+### 1. ¿Qué hace Python? {#es-que-hace-python}
 
 Python recibe instrucciones, las ejecuta en orden y puede conservar resultados en memoria. En un documento Quarto, cada bloque marcado como `{python}` contiene instrucciones ejecutables.
 
@@ -44,7 +57,7 @@ print(minutos)
 
 Python primero guarda `2.5` en `horas`. Después multiplica ese valor por `60`, guarda el resultado en `minutos` y finalmente imprime `150.0`.
 
-### 2. Variables y tipos de datos
+### 2. Variables y tipos de datos {#es-variables-tipos}
 
 Una **variable** es un nombre asociado con un valor. El símbolo `=` asigna el valor de la derecha al nombre de la izquierda.
 
@@ -85,7 +98,7 @@ print("tele" + "scopio")
 
 El primer resultado es el número `20`. El segundo es el texto `"telescopio"`.
 
-### 3. Operaciones numéricas
+### 3. Operaciones numéricas {#es-operaciones}
 
 Python incluye operadores para los cálculos más frecuentes:
 
@@ -115,7 +128,7 @@ print(nivel_bateria)
 
 El resultado es `65`: se parte de 50, se agregan 20 y se restan 5.
 
-### 4. Comparaciones, booleanos y decisiones
+### 4. Comparaciones, booleanos y decisiones {#es-decisiones}
 
 Una comparación produce un booleano. Los operadores principales son `>`, `<`, `>=`, `<=`, `==` y `!=`.
 
@@ -158,7 +171,7 @@ print(estado_senal)
 
 Como `78 >= 70` es verdadero, Python asigna `"estable"`. La indentación de cuatro espacios indica qué instrucciones pertenecen a cada rama.
 
-### 5. Texto o strings
+### 5. Texto o strings {#es-strings}
 
 Un string es una secuencia ordenada de caracteres. Puede escribirse entre comillas simples o dobles.
 
@@ -195,7 +208,7 @@ print(mensaje)
 
 Las expresiones entre llaves se evalúan y se insertan en el mensaje.
 
-### 6. Listas
+### 6. Listas {#es-listas}
 
 Una lista es una colección ordenada y mutable. Se escribe con corchetes y puede crecer, reducirse o cambiar.
 
@@ -234,7 +247,7 @@ print(tiempos_ordenados)
 
 La primera lista permanece igual; la segunda contiene los valores ordenados.
 
-### 7. Diccionarios
+### 7. Diccionarios {#es-diccionarios}
 
 Un diccionario organiza información en pares **llave-valor**. Cada llave describe el significado de su valor.
 
@@ -279,7 +292,7 @@ for llave, valor in estacion.items():
 
 En cada repetición, `llave` y `valor` reciben uno de los pares del diccionario.
 
-### 8. Tuplas
+### 8. Tuplas {#es-tuplas}
 
 Una tupla es una colección ordenada e inmutable. Es apropiada cuando varios valores forman una unidad que no debería cambiar.
 
@@ -303,7 +316,7 @@ print(f"Canal azul: {azul}")
 
 Una tupla con un único elemento necesita una coma: `("urgente",)`. Sin la coma, Python interpreta los paréntesis como una agrupación normal.
 
-### 9. Estructuras anidadas
+### 9. Estructuras anidadas {#es-anidadas}
 
 Las estructuras se pueden combinar. Una lista de diccionarios es una forma común de representar varios registros:
 
@@ -332,7 +345,7 @@ print(f"Envío más pesado: {envio_mas_pesado['codigo']}")
 
 La expresión dentro de `sum()` extrae el peso de cada envío. En `max()`, `key` indica que la comparación debe hacerse usando `peso_kg`.
 
-### 10. Cómo elegir una estructura
+### 10. Cómo elegir una estructura {#es-elegir}
 
 | Necesidad | Estructura recomendada |
 |---|---|
@@ -346,7 +359,20 @@ La elección depende del comportamiento de los datos. No depende solamente de cu
 
 ## English
 
-### 1. What does Python do?
+### Contents
+
+1. [What does Python do?](#en-what-python-does)
+2. [Variables and data types](#en-variables-types)
+3. [Numeric operations](#en-operations)
+4. [Comparisons, booleans, and decisions](#en-decisions)
+5. [Text or strings](#en-strings)
+6. [Lists](#en-lists)
+7. [Dictionaries](#en-dictionaries)
+8. [Tuples](#en-tuples)
+9. [Nested structures](#en-nested)
+10. [Choosing a structure](#en-choosing)
+
+### 1. What does Python do? {#en-what-python-does}
 
 Python receives instructions, runs them in order, and can keep results in memory. In a Quarto document, each block marked as `{python}` contains executable instructions.
 
@@ -360,7 +386,7 @@ print(minutes)
 
 Python first stores `2.5` in `hours`. It then multiplies that value by `60`, stores the result in `minutes`, and finally prints `150.0`.
 
-### 2. Variables and data types
+### 2. Variables and data types {#en-variables-types}
 
 A **variable** is a name associated with a value. The `=` symbol assigns the value on the right to the name on the left.
 
@@ -401,7 +427,7 @@ print("tele" + "scope")
 
 The first result is the number `20`. The second is the text `"telescope"`.
 
-### 3. Numeric operations
+### 3. Numeric operations {#en-operations}
 
 Python provides operators for common calculations:
 
@@ -431,7 +457,7 @@ print(battery_level)
 
 The result is `65`: start at 50, add 20, and subtract 5.
 
-### 4. Comparisons, booleans, and decisions
+### 4. Comparisons, booleans, and decisions {#en-decisions}
 
 A comparison produces a boolean. The main operators are `>`, `<`, `>=`, `<=`, `==`, and `!=`.
 
@@ -474,7 +500,7 @@ print(signal_status)
 
 Because `78 >= 70` is true, Python assigns `"stable"`. The four-space indentation identifies the instructions that belong to each branch.
 
-### 5. Text or strings
+### 5. Text or strings {#en-strings}
 
 A string is an ordered sequence of characters. It can use single or double quotation marks.
 
@@ -511,7 +537,7 @@ print(message)
 
 The expressions inside braces are evaluated and inserted into the message.
 
-### 6. Lists
+### 6. Lists {#en-lists}
 
 A list is an ordered, mutable collection. It uses square brackets and can grow, shrink, or change.
 
@@ -550,7 +576,7 @@ print(sorted_times)
 
 The first list remains unchanged; the second contains the sorted values.
 
-### 7. Dictionaries
+### 7. Dictionaries {#en-dictionaries}
 
 A dictionary organizes information as **key-value** pairs. Each key describes the meaning of its value.
 
@@ -595,7 +621,7 @@ for key, value in station.items():
 
 During each repetition, `key` and `value` receive one pair from the dictionary.
 
-### 8. Tuples
+### 8. Tuples {#en-tuples}
 
 A tuple is an ordered, immutable collection. It is appropriate when several values form a unit that should not change.
 
@@ -619,7 +645,7 @@ print(f"Blue channel: {blue}")
 
 A one-element tuple needs a comma: `("urgent",)`. Without the comma, Python treats the parentheses as normal grouping.
 
-### 9. Nested structures
+### 9. Nested structures {#en-nested}
 
 Structures can be combined. A list of dictionaries is a common way to represent multiple records:
 
@@ -648,7 +674,7 @@ print(f"Heaviest shipment: {heaviest['code']}")
 
 The expression inside `sum()` extracts each shipment's weight. In `max()`, `key` tells Python to compare the records using `weight_kg`.
 
-### 10. Choosing a structure
+### 10. Choosing a structure {#en-choosing}
 
 | Need | Recommended structure |
 |---|---|
