@@ -2,4 +2,5 @@
 /_freeze/
 /.jupyter_cache/
 /.ipynb_checkpoints/
+.Rhistory
 index.html

@@ -6,6 +6,9 @@ lang: es
 format:
   html:
     toc: true
+    toc-title: "Contenido / Contents"
+    toc-location: left
+    toc-expand: true
     toc-depth: 3
     code-copy: true
     code-overflow: wrap
