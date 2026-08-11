@@ -1,0 +1,660 @@
+---
+title: "Python Essentials / Fundamentos de Python"
+subtitle: "A bilingual, practical introduction / Una introducción práctica bilingüe"
+author: "Miguelangel Palma"
+lang: es
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: github
+    embed-resources: true
+jupyter: python3
+execute:
+  enabled: true
+  echo: true
+  warning: false
+  error: false
+---
+
+Este documento contiene el mismo curso en español e inglés. Selecciona un idioma en las pestañas siguientes.
+
+This document contains the same course in Spanish and English. Select a language in the tabs below.
+
+::: {.panel-tabset}
+
+## Español
+
+### 1. ¿Qué hace Python?
+
+Python recibe instrucciones, las ejecuta en orden y puede conservar resultados en memoria. En un documento Quarto, cada bloque marcado como `{python}` contiene instrucciones ejecutables.
+
+El ejemplo siguiente calcula cuántos minutos hay en dos horas y media:
+
+```{python}
+horas = 2.5
+minutos = horas * 60
+print(minutos)
+```
+
+Python primero guarda `2.5` en `horas`. Después multiplica ese valor por `60`, guarda el resultado en `minutos` y finalmente imprime `150.0`.
+
+### 2. Variables y tipos de datos
+
+Una **variable** es un nombre asociado con un valor. El símbolo `=` asigna el valor de la derecha al nombre de la izquierda.
+
+```{python}
+nombre_satelite = "Nébula"
+orbitas_completadas = 14
+temperatura_c = -32.5
+comunicacion_activa = True
+
+print(nombre_satelite)
+print(orbitas_completadas)
+print(temperatura_c)
+print(comunicacion_activa)
+```
+
+Cada valor tiene un tipo:
+
+- `str` representa texto;
+- `int` representa números enteros;
+- `float` representa números con decimales;
+- `bool` representa `True` o `False`.
+
+La función `type()` permite comprobarlo:
+
+```{python}
+print(type(nombre_satelite))
+print(type(orbitas_completadas))
+print(type(temperatura_c))
+print(type(comunicacion_activa))
+```
+
+El tipo determina qué operaciones son válidas. Por ejemplo, los números se suman y los strings se concatenan:
+
+```{python}
+print(12 + 8)
+print("tele" + "scopio")
+```
+
+El primer resultado es el número `20`. El segundo es el texto `"telescopio"`.
+
+### 3. Operaciones numéricas
+
+Python incluye operadores para los cálculos más frecuentes:
+
+```{python}
+energia_inicial = 95
+energia_consumida = 28
+
+print(energia_inicial + 10)       # suma
+print(energia_inicial - energia_consumida)
+print(energia_consumida * 3)      # multiplicación
+print(energia_inicial / 4)        # división decimal
+print(energia_inicial // 4)       # cociente entero
+print(energia_inicial % 4)        # residuo
+print(3 ** 4)                     # potencia
+```
+
+`/` siempre produce una división decimal. `//` conserva solo el cociente entero y `%` obtiene el residuo. Por eso `95 // 4` es `23` y `95 % 4` es `3`.
+
+Los operadores abreviados modifican una variable existente:
+
+```{python}
+nivel_bateria = 50
+nivel_bateria += 20
+nivel_bateria -= 5
+print(nivel_bateria)
+```
+
+El resultado es `65`: se parte de 50, se agregan 20 y se restan 5.
+
+### 4. Comparaciones, booleanos y decisiones
+
+Una comparación produce un booleano. Los operadores principales son `>`, `<`, `>=`, `<=`, `==` y `!=`.
+
+```{python}
+humedad = 46
+
+print(humedad > 40)
+print(humedad <= 60)
+print(humedad == 46)
+print(humedad != 50)
+```
+
+`==` compara dos valores; `=` asigna un valor. Son operaciones diferentes.
+
+Las palabras `and`, `or` y `not` permiten construir condiciones más completas:
+
+```{python}
+temperatura_estable = True
+puerta_cerrada = True
+
+sistema_seguro = temperatura_estable and puerta_cerrada
+requiere_atencion = not temperatura_estable or not puerta_cerrada
+
+print(sistema_seguro)
+print(requiere_atencion)
+```
+
+Un bloque `if` ejecuta código únicamente cuando su condición es verdadera:
+
+```{python}
+calidad_senal = 78
+
+if calidad_senal >= 70:
+    estado_senal = "estable"
+else:
+    estado_senal = "débil"
+
+print(estado_senal)
+```
+
+Como `78 >= 70` es verdadero, Python asigna `"estable"`. La indentación de cuatro espacios indica qué instrucciones pertenecen a cada rama.
+
+### 5. Texto o strings
+
+Un string es una secuencia ordenada de caracteres. Puede escribirse entre comillas simples o dobles.
+
+```{python}
+codigo = "ORBITA-27"
+
+print(len(codigo))
+print(codigo.lower())
+print(codigo.replace("-", " "))
+```
+
+`len()` cuenta caracteres, `lower()` crea una versión en minúsculas y `replace()` sustituye una parte del texto. El string original no cambia porque los strings son inmutables.
+
+Cada carácter tiene una posición o índice. Python comienza en `0` y permite usar índices negativos desde el final:
+
+```{python}
+print(codigo[0])
+print(codigo[-1])
+print(codigo[0:6])
+print(codigo[::-1])
+```
+
+`codigo[0:6]` incluye las posiciones 0 a 5, pero no incluye la posición 6. `[::-1]` recorre el texto en sentido inverso.
+
+Una f-string combina texto y variables con claridad:
+
+```{python}
+sensor = "Luz-4"
+lecturas = 128
+
+mensaje = f"El sensor {sensor} registró {lecturas} lecturas."
+print(mensaje)
+```
+
+Las expresiones entre llaves se evalúan y se insertan en el mensaje.
+
+### 6. Listas
+
+Una lista es una colección ordenada y mutable. Se escribe con corchetes y puede crecer, reducirse o cambiar.
+
+```{python}
+modulos = ["cámara", "radar", "antena"]
+
+print(modulos[0])
+print(modulos[-1])
+print(modulos[0:2])
+```
+
+La primera consulta obtiene `"cámara"`; la segunda obtiene el último elemento; el slicing produce una lista nueva con los dos primeros.
+
+Los métodos modifican o consultan la lista:
+
+```{python}
+modulos.append("espectrómetro")
+modulos[1] = "radar térmico"
+modulo_retirado = modulos.pop(0)
+
+print(modulo_retirado)
+print(modulos)
+```
+
+`append()` agrega al final, la asignación por índice reemplaza un valor y `pop()` elimina y devuelve un elemento.
+
+Para ordenar sin perder el orden original se usa `sorted()`:
+
+```{python}
+tiempos_respuesta = [42, 18, 35, 27]
+tiempos_ordenados = sorted(tiempos_respuesta)
+
+print(tiempos_respuesta)
+print(tiempos_ordenados)
+```
+
+La primera lista permanece igual; la segunda contiene los valores ordenados.
+
+### 7. Diccionarios
+
+Un diccionario organiza información en pares **llave-valor**. Cada llave describe el significado de su valor.
+
+```{python}
+estacion = {
+    "nombre": "Horizonte",
+    "tripulacion": 6,
+    "operativa": True,
+    "altura_km": 410,
+}
+
+print(estacion["nombre"])
+print(estacion["tripulacion"])
+```
+
+Se consulta un valor mediante su llave, no mediante su posición.
+
+```{python}
+estacion["pais_control"] = "Andesia"
+estacion["tripulacion"] = 7
+
+print(estacion)
+```
+
+Una llave nueva agrega información. Una llave existente actualiza su valor.
+
+`get()` es útil cuando una llave podría no existir:
+
+```{python}
+print(estacion.get("altura_km"))
+print(estacion.get("fecha_retorno", "sin definir"))
+```
+
+La segunda consulta devuelve el valor alternativo `"sin definir"` en lugar de generar un error.
+
+Un ciclo permite recorrer todos los pares:
+
+```{python}
+for llave, valor in estacion.items():
+    print(f"{llave}: {valor}")
+```
+
+En cada repetición, `llave` y `valor` reciben uno de los pares del diccionario.
+
+### 8. Tuplas
+
+Una tupla es una colección ordenada e inmutable. Es apropiada cuando varios valores forman una unidad que no debería cambiar.
+
+```{python}
+resolucion = (1920, 1080)
+color_rgb = (36, 118, 205)
+
+print(resolucion[0])
+print(color_rgb)
+```
+
+El desempaquetado asigna cada componente a una variable:
+
+```{python}
+ancho, alto = resolucion
+rojo, verde, azul = color_rgb
+
+print(f"Resolución: {ancho} x {alto}")
+print(f"Canal azul: {azul}")
+```
+
+Una tupla con un único elemento necesita una coma: `("urgente",)`. Sin la coma, Python interpreta los paréntesis como una agrupación normal.
+
+### 9. Estructuras anidadas
+
+Las estructuras se pueden combinar. Una lista de diccionarios es una forma común de representar varios registros:
+
+```{python}
+envios = [
+    {"codigo": "AX-14", "peso_kg": 8.2, "destino": (4, 2)},
+    {"codigo": "BZ-07", "peso_kg": 3.5, "destino": (1, 6)},
+    {"codigo": "CR-31", "peso_kg": 11.0, "destino": (3, 4)},
+]
+
+print(envios[1]["codigo"])
+print(envios[1]["destino"][0])
+```
+
+La primera expresión sigue esta ruta: lista → segundo diccionario → llave `"codigo"`. La segunda continúa hasta el primer valor de la tupla `destino`.
+
+Podemos resumir los registros con funciones integradas:
+
+```{python}
+peso_total = sum(envio["peso_kg"] for envio in envios)
+envio_mas_pesado = max(envios, key=lambda envio: envio["peso_kg"])
+
+print(f"Peso total: {peso_total:.1f} kg")
+print(f"Envío más pesado: {envio_mas_pesado['codigo']}")
+```
+
+La expresión dentro de `sum()` extrae el peso de cada envío. En `max()`, `key` indica que la comparación debe hacerse usando `peso_kg`.
+
+### 10. Cómo elegir una estructura
+
+| Necesidad | Estructura recomendada |
+|---|---|
+| Secuencia ordenada que puede cambiar | Lista |
+| Información identificada mediante nombres | Diccionario |
+| Grupo ordenado de valores que no debe cambiar | Tupla |
+| Decisión entre dos estados | Booleano |
+| Texto | String |
+
+La elección depende del comportamiento de los datos. No depende solamente de cuántos valores se quieran guardar.
+
+## English
+
+### 1. What does Python do?
+
+Python receives instructions, runs them in order, and can keep results in memory. In a Quarto document, each block marked as `{python}` contains executable instructions.
+
+The following example calculates how many minutes there are in two and a half hours:
+
+```{python}
+hours = 2.5
+minutes = hours * 60
+print(minutes)
+```
+
+Python first stores `2.5` in `hours`. It then multiplies that value by `60`, stores the result in `minutes`, and finally prints `150.0`.
+
+### 2. Variables and data types
+
+A **variable** is a name associated with a value. The `=` symbol assigns the value on the right to the name on the left.
+
+```{python}
+satellite_name = "Nebula"
+completed_orbits = 14
+temperature_c = -32.5
+communication_active = True
+
+print(satellite_name)
+print(completed_orbits)
+print(temperature_c)
+print(communication_active)
+```
+
+Each value has a type:
+
+- `str` represents text;
+- `int` represents whole numbers;
+- `float` represents decimal numbers;
+- `bool` represents `True` or `False`.
+
+Use `type()` to inspect them:
+
+```{python}
+print(type(satellite_name))
+print(type(completed_orbits))
+print(type(temperature_c))
+print(type(communication_active))
+```
+
+The type determines which operations are valid. For example, numbers are added while strings are concatenated:
+
+```{python}
+print(12 + 8)
+print("tele" + "scope")
+```
+
+The first result is the number `20`. The second is the text `"telescope"`.
+
+### 3. Numeric operations
+
+Python provides operators for common calculations:
+
+```{python}
+initial_energy = 95
+used_energy = 28
+
+print(initial_energy + 10)       # addition
+print(initial_energy - used_energy)
+print(used_energy * 3)           # multiplication
+print(initial_energy / 4)        # decimal division
+print(initial_energy // 4)       # integer quotient
+print(initial_energy % 4)        # remainder
+print(3 ** 4)                    # exponentiation
+```
+
+`/` produces decimal division. `//` keeps the integer quotient and `%` returns the remainder. Therefore, `95 // 4` is `23` and `95 % 4` is `3`.
+
+Short assignment operators update an existing variable:
+
+```{python}
+battery_level = 50
+battery_level += 20
+battery_level -= 5
+print(battery_level)
+```
+
+The result is `65`: start at 50, add 20, and subtract 5.
+
+### 4. Comparisons, booleans, and decisions
+
+A comparison produces a boolean. The main operators are `>`, `<`, `>=`, `<=`, `==`, and `!=`.
+
+```{python}
+humidity = 46
+
+print(humidity > 40)
+print(humidity <= 60)
+print(humidity == 46)
+print(humidity != 50)
+```
+
+`==` compares two values; `=` assigns a value. They are different operations.
+
+The words `and`, `or`, and `not` combine conditions:
+
+```{python}
+stable_temperature = True
+door_closed = True
+
+safe_system = stable_temperature and door_closed
+needs_attention = not stable_temperature or not door_closed
+
+print(safe_system)
+print(needs_attention)
+```
+
+An `if` block runs code only when its condition is true:
+
+```{python}
+signal_quality = 78
+
+if signal_quality >= 70:
+    signal_status = "stable"
+else:
+    signal_status = "weak"
+
+print(signal_status)
+```
+
+Because `78 >= 70` is true, Python assigns `"stable"`. The four-space indentation identifies the instructions that belong to each branch.
+
+### 5. Text or strings
+
+A string is an ordered sequence of characters. It can use single or double quotation marks.
+
+```{python}
+code = "ORBIT-27"
+
+print(len(code))
+print(code.lower())
+print(code.replace("-", " "))
+```
+
+`len()` counts characters, `lower()` creates a lowercase version, and `replace()` substitutes part of the text. The original string does not change because strings are immutable.
+
+Each character has a position or index. Python starts at `0` and supports negative indexes from the end:
+
+```{python}
+print(code[0])
+print(code[-1])
+print(code[0:5])
+print(code[::-1])
+```
+
+`code[0:5]` includes positions 0 through 4, but not position 5. `[::-1]` reads the text in reverse.
+
+An f-string combines text and variables clearly:
+
+```{python}
+sensor = "Light-4"
+readings = 128
+
+message = f"Sensor {sensor} recorded {readings} readings."
+print(message)
+```
+
+The expressions inside braces are evaluated and inserted into the message.
+
+### 6. Lists
+
+A list is an ordered, mutable collection. It uses square brackets and can grow, shrink, or change.
+
+```{python}
+modules = ["camera", "radar", "antenna"]
+
+print(modules[0])
+print(modules[-1])
+print(modules[0:2])
+```
+
+The first expression retrieves `"camera"`; the second retrieves the last element; the slice creates a new list with the first two elements.
+
+Methods modify or inspect a list:
+
+```{python}
+modules.append("spectrometer")
+modules[1] = "thermal radar"
+removed_module = modules.pop(0)
+
+print(removed_module)
+print(modules)
+```
+
+`append()` adds to the end, assignment by index replaces a value, and `pop()` removes and returns an element.
+
+Use `sorted()` to sort values without losing the original order:
+
+```{python}
+response_times = [42, 18, 35, 27]
+sorted_times = sorted(response_times)
+
+print(response_times)
+print(sorted_times)
+```
+
+The first list remains unchanged; the second contains the sorted values.
+
+### 7. Dictionaries
+
+A dictionary organizes information as **key-value** pairs. Each key describes the meaning of its value.
+
+```{python}
+station = {
+    "name": "Horizon",
+    "crew": 6,
+    "operational": True,
+    "altitude_km": 410,
+}
+
+print(station["name"])
+print(station["crew"])
+```
+
+A value is accessed through its key, not its position.
+
+```{python}
+station["control_country"] = "Andesia"
+station["crew"] = 7
+
+print(station)
+```
+
+A new key adds information. An existing key updates its value.
+
+`get()` is useful when a key might be missing:
+
+```{python}
+print(station.get("altitude_km"))
+print(station.get("return_date", "not defined"))
+```
+
+The second lookup returns the alternative value `"not defined"` instead of raising an error.
+
+A loop can visit every pair:
+
+```{python}
+for key, value in station.items():
+    print(f"{key}: {value}")
+```
+
+During each repetition, `key` and `value` receive one pair from the dictionary.
+
+### 8. Tuples
+
+A tuple is an ordered, immutable collection. It is appropriate when several values form a unit that should not change.
+
+```{python}
+resolution = (1920, 1080)
+rgb_color = (36, 118, 205)
+
+print(resolution[0])
+print(rgb_color)
+```
+
+Unpacking assigns each component to a variable:
+
+```{python}
+width, height = resolution
+red, green, blue = rgb_color
+
+print(f"Resolution: {width} x {height}")
+print(f"Blue channel: {blue}")
+```
+
+A one-element tuple needs a comma: `("urgent",)`. Without the comma, Python treats the parentheses as normal grouping.
+
+### 9. Nested structures
+
+Structures can be combined. A list of dictionaries is a common way to represent multiple records:
+
+```{python}
+shipments = [
+    {"code": "AX-14", "weight_kg": 8.2, "destination": (4, 2)},
+    {"code": "BZ-07", "weight_kg": 3.5, "destination": (1, 6)},
+    {"code": "CR-31", "weight_kg": 11.0, "destination": (3, 4)},
+]
+
+print(shipments[1]["code"])
+print(shipments[1]["destination"][0])
+```
+
+The first expression follows this path: list → second dictionary → `"code"` key. The second continues to the first value of the `destination` tuple.
+
+Built-in functions can summarize the records:
+
+```{python}
+total_weight = sum(shipment["weight_kg"] for shipment in shipments)
+heaviest = max(shipments, key=lambda shipment: shipment["weight_kg"])
+
+print(f"Total weight: {total_weight:.1f} kg")
+print(f"Heaviest shipment: {heaviest['code']}")
+```
+
+The expression inside `sum()` extracts each shipment's weight. In `max()`, `key` tells Python to compare the records using `weight_kg`.
+
+### 10. Choosing a structure
+
+| Need | Recommended structure |
+|---|---|
+| Ordered sequence that can change | List |
+| Information identified by names | Dictionary |
+| Ordered group of values that should not change | Tuple |
+| Decision between two states | Boolean |
+| Text | String |
+
+The choice depends on how the data should behave, not only on how many values need to be stored.
+
+:::
